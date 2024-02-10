@@ -1,0 +1,374 @@
+/* Define custom color variables using CSS custom properties */
+:root{
+    --very-dark-color: #000000ff;
+    --dark-color: #3D0603ff;
+    --main-color: #5E4F3Fff;
+    --light-color: #E9CB80;
+    --bright-color: #DDA515;
+    --base-color: #625E5Dff;
+    --contrast-red: #fd0202;
+    --contrast-blue: rgb(63, 198, 231);
+}
+
+/* Utility class to hide elements */
+.hide{
+    display: none;
+}
+
+/* Background styles for the body */
+.bgBody{
+    background-image: url(..//images/endGameBG.jpg);
+}
+
+/* Background styles for custom aside elements */
+.customAside{
+    background-image: url(..//images/sideImg.jpg);
+}
+/*...............................................*/
+/*CURTAINS*/
+
+/* Styles for the curtains container */
+.curtains {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1;
+}
+/* Styles for both left and right curtains */
+.left-curtain,
+.right-curtain {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 50%;
+    background: url('../images/singleCurtain.png');
+    background-size: cover;
+    background-position: center;
+}
+/* Styles specifically for the left curtain */
+.left-curtain {
+    left: 0;
+    animation: left-curtain-animation 5s forwards;
+}
+/* Styles specifically for the right curtain */
+.right-curtain {
+    right: 0;
+    animation: right-curtain-animation 5s forwards;
+}
+/* Keyframes animation for the left curtain */
+@keyframes left-curtain-animation {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-80%);
+    }
+}
+/* Keyframes animation for the right curtain */
+@keyframes right-curtain-animation {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(80%);
+    }
+}
+
+/*................................................*/
+/*START-SCREEN*/
+
+/* Background styles for the start screen */
+#start-screen{
+    background-image: url(..//images/startGame.jpg);
+    background-size: cover;
+    background-position: center;
+    color: white;
+    height: 100vh;
+}
+/* Styling for the welcome message */
+#welcomeMessage {
+    color: transparent;
+    -webkit-text-stroke: 2px var(--bright-color);
+}
+/* Styling for the gradient text effect */
+#start-screen h3{
+    background: linear-gradient(to left, var(--bright-color), var(--contrast-red));
+    -webkit-background-clip: text;
+    color: transparent;
+}
+/* Styles for the clapboard container */
+#clapboard {
+    position: relative;
+    width: 200px; /* Set the width of the container */
+    height: 200px; /* Set the height of the container */
+}
+/* Styles for the open and close clapboard images */
+#openClapboard,
+#closeClapboard {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%; /* Make sure the images take up the full container */
+    height: auto;
+}
+/* Initially hide the close clapboard image */
+#closeClapboard {
+    display: none; 
+}
+/* Show close clapboard on hover */
+#clapboard:hover #openClapboard {
+    display: none;
+}
+#clapboard:hover #closeClapboard {
+    display: block;
+}
+/* Styles for the start button */
+#startBtn {
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    background-color: transparent;
+    color: transparent;
+    -webkit-text-stroke: 2px var(--light-color);
+    font-size: 4rem;
+    cursor: pointer;
+    padding: 10px 20px; /* Padding for the clickable area */
+    border: none;
+    transition: background-color 0.3s, color 0.3s;
+    animation: fadeIn 1s ease-out 2s forwards; /* Delay animation for 2 seconds */
+    opacity: 0; /* Initially hidden */
+}
+/* Define the animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+#startBtn:hover {
+    background: linear-gradient(to left, var(--bright-color), var(--contrast-red));
+    -webkit-background-clip: text;
+    color: transparent;
+}
+/*...................................................*/
+/*GAME-SCREEN*/
+
+/* Background styles for the game screen */
+#customProgressBar{
+    background-color: #b8860b;
+    color: #87020b;
+}
+#question h1{
+    color: white;
+    -webkit-text-stroke: 3px black;
+    font-size: 4rem;
+}
+/* Media query for medium screens */
+@media (max-width: 991px) {
+    #question h1 {
+        -webkit-text-stroke: 2px black;
+        font-size: 3rem; /* Adjust the font size for smaller screens */
+    }
+}
+/* Media query for small screens */
+@media (max-width: 767px) {
+    #question h1 {
+        -webkit-text-stroke: 1px black;
+        font-size: 2rem; /* Adjust the font size for smaller screens */
+    }
+}
+
+.smaller-text {
+    font-size: 50%;
+}
+#clue1, #clue2{
+    background: radial-gradient(circle, #ffd700, #b8860b);
+    color:#87020b;
+    margin-bottom: 15px;
+}
+#game-screen {
+    background: radial-gradient(circle, var(--contrast-red), var(--very-dark-color));
+}
+#clock, #logoImg{
+    max-width: 150px;
+}
+#time {
+    position: absolute;
+    top: 40px;
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%);
+    text-align: center;
+    font-size: 3rem;
+    color: black;
+}
+#actors, #genre, #plot {
+    border-radius: 10px;
+    color: var(--bright-color);
+    background-color: var(--very-dark-color);
+}
+
+/*..................................................*/
+/*FEEDBACK DIV*/
+
+/* Background styles for the feedback element */
+#feedback{
+    background-image: url(../images/redCarpet.jpg);
+    background-size: cover;
+    background-position: center;
+}
+/* Styles for the image container aside(left and right) */
+.image-container {
+    position: relative;
+    width: 200px;
+    height: 400px;
+    overflow: hidden;
+}
+/* Styles for the flippable image with a horizontal flip animation */
+.flippable-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    animation: flipAnimation 4s infinite;
+}
+/* Keyframes for the horizontal flip animation */
+@keyframes flipAnimation {
+    0%, 100% {
+    transform: scaleX(1);
+    }
+    50% {
+    transform: scaleX(-1);
+    }
+}
+/* Background styles for the custom card body */
+.customCardBody{
+    background: linear-gradient(to bottom, #f81a36, #87020b);
+}
+/* Button styles within the custom card body */
+.customCardBody button{
+    background: radial-gradient(circle, #ffd700, #b8860b);
+    color:#87020b;
+}
+/* Styles for the card with a gold border */
+.card-with-gold-border {
+    border: 5px solid;
+    border-image: radial-gradient(circle, #ffd700, #b8860b) 1;
+    border-image-slice: 50;
+    border-radius: 15px;
+    padding: 5px;
+    background-color: #b8860b;
+    color: #b8860b;
+}
+
+/*...............................................*/
+/*END-SCREEN*/
+
+/* Styles for the end screen */
+#end-screen{
+    background-image: url(..//images/endGameBG.jpg);
+    background-size: cover;
+    background-position: center;
+    color: white;
+    height: 100vh;
+    align-items: center;
+}
+/* Styles for the heading in the end screen */
+#end-screen h1{
+    font-family: 'Great Vibes', cursive;
+    font-size: 5rem;
+}
+/* Styles for the paragraph in the end screen */
+#end-screen p{
+    font-family: 'Great Vibes', cursive;
+    font-size: 2rem;
+}
+/* Styles for the submit user name button */
+#submitUserNameBtn {
+    background-color: black;
+    color: white;
+    -webkit-text-stroke: 0px;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 10px 20px; /* Padding for the clickable area */
+    border: none;
+    transition: background-color 0.3s, color 0.3s;
+}
+#submitUserNameBtn:hover {
+    background: radial-gradient(circle, var(--very-dark-color), var(--dark-color));
+    color: rgba(255, 255, 255, 0.8);
+}
+
+#timer {
+    text-align: right; 
+}
+
+#actors {
+    justify-content: center;
+    /* display: flex; */
+    flex-direction: row;
+    align-items: center;
+    border-radius: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #87020b;
+    background-color: #ffcc00;
+}
+
+#genre {
+    justify-content: center;
+    /* display: flex; */
+    flex-direction: row;
+    align-items: center;
+    border-radius: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #87020b;
+    background-color: #ffcc00;
+}
+
+#plot {
+    justify-content: center;
+    /* display: flex; */
+    flex-direction: row;
+    align-items: center;
+    border-radius: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #87020b;
+    background-color: #ffcc00;
+}
+
+
+#option1 {
+    background-color: #7ba3fe;
+}
+
+#option2 {
+    background-color: #7ba3fe;
+}
+#option3 {
+    background-color: #7ba3fe;
+}
+
+#option4 {
+    background-color: #7ba3fe;
+}
+
+#option1:hover {
+    background-color: #b3caff;
+}
+#option2:hover {
+    background-color: #b3caff;
+}
+#option3:hover {
+    background-color: #b3caff;
+}
+#option4:hover {
+    background-color: #b3caff;
+}
